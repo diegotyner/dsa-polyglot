@@ -3,7 +3,23 @@ import java.util.*;
 class Solution {
     // public int solve(List<Integer> nums) {
     public int solve(int[] nums) {
-        return -1; // TODO
+      HashSet<Integer> seen = new HashSet<>();
+      int best = 0;
+      for (var num : nums) {
+        seen.add(num);
+      }
+      for (var num : seen) {
+        if (seen.contains(num-1)){
+          continue;
+        }
+        // else...
+        int i=1;
+        while(seen.contains(num+i)) {
+          i++;
+        }
+        best = Integer.max(best, i);
+      }
+      return best;
     }
 
     record TestCase(int[] nums, int expected) {}
@@ -13,9 +29,9 @@ class Solution {
 
         // List<TestCase> tests = List.of(
         List<TestCase> tests = List.of(
-            new TestCase(new int[]{2, 7, 11, 15}, 9),
-            new TestCase(new int[]{3, 2, 4}, 6),
-            new TestCase(new int[]{3, 3}, 6)
+            new TestCase(new int[]{100,4,200,1,3,2}, 4),
+            new TestCase(new int[]{0,3,7,2,5,8,4,6,0,1}, 9),
+            new TestCase(new int[]{1,0,1,2}, 3)
         );
 
         int correct = 0;
