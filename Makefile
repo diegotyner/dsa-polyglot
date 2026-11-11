@@ -7,8 +7,8 @@ run: $(FILE)
 	/tmp/sol
 
 run-java: $(FILE)
-	javac $(FILE)
-	java -cp $(dir $(FILE)) Solution
+	javac -cp common:$(dir $(FILE)) $(FILE)
+	java -cp common:$(dir $(FILE)) Solution
 
 # usage: make build FILE=...
 build: $(FILE)
