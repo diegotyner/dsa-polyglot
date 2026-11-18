@@ -11,7 +11,20 @@ import sys
 
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
-      pass
+      if not intervals:
+        return 0
+      intervals.sort(key=lambda x: x[1])
+
+      conflicts = 0
+      prev_end = intervals[0][1]
+
+      for interval in intervals[1:]:
+        if interval[0] < prev_end:
+          conflicts += 1
+        else:
+          prev_end = interval[1]
+
+      return conflicts
 
 
 @dataclass

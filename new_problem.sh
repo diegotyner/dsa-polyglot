@@ -15,6 +15,9 @@ TOPIC="${DIR%%/*}"
 if [ "$TOPIC" = "linked-list" ]; then
 	CPP_TEMPLATE="$SCRIPT_DIR/problem_template_linked_list.cpp"
 	JAVA_TEMPLATE="$SCRIPT_DIR/problem_template_linked_list.java"
+elif [ "$TOPIC" = "trees" ]; then
+	CPP_TEMPLATE="$SCRIPT_DIR/problem_template_tree.cpp"
+	JAVA_TEMPLATE="$SCRIPT_DIR/problem_template_tree.java"
 else
 	CPP_TEMPLATE="$SCRIPT_DIR/problem_template.cpp"
 	JAVA_TEMPLATE="$SCRIPT_DIR/problem_template.java"
